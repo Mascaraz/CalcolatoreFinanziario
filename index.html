@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcolatore Finanza Personale</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Calcolatore Finanza Personale</h1>
+    </header>
+
+    <div class="container">
+        <!-- Menù delle categorie -->
+        <nav>
+            <ul>
+                <li><button onclick="mostraSezione('interesseComposto')">Interesse Composto</button></li>
+                <li><button onclick="mostraSezione('estinzioneDebito')">Estinzione Debito</button></li>
+                <li><button onclick="mostraSezione('crescitaPatrimonio')">Crescita Patrimonio</button></li>
+            </ul>
+        </nav>
+
+        <!-- Sezione Interesse Composto -->
+        <div id="interesseComposto" class="sezione">
+            <h2>Interesse Composto</h2>
+            <div class="form-group">
+                <label for="capitale">Capitale Iniziale (€):</label>
+                <input type="number" id="capitale" placeholder="Inserisci il capitale iniziale">
+            </div>
+            <div class="form-group">
+                <label for="depositi">Depositi:</label>
+                <input type="number" id="depositi" placeholder="Inserisci deposito">
+                <select id="deposito">
+                    <option value="mensilmente">Mensilmente</option>
+                    <option value="settimanale">Settimanale</option>
+                    <option value="annuale">Annuale</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="percentuale">Percentuale di Interesse (%):</label>
+                <input type="number" id="percentuale" placeholder="Inserisci percentuale di interesse">
+            </div>
+            <button onclick="calcolaInteresseComposto()">Calcola Interesse Composto</button>
+            <div id="resocontoInteresseComposto"></div>
+            <canvas id="graficoInteresseComposto"></canvas>
+        </div>
+
+        <!-- Sezione Estinzione Debito -->
+        <div id="estinzioneDebito" class="sezione">
+            <h2>Estinzione Debito</h2>
+            <div class="form-group">
+                <label for="debito">Importo Debito (€):</label>
+                <input type="number" id="debito" placeholder="Inserisci l'importo del debito">
+            </div>
+            <div class="form-group">
+                <label for="tasso-debito">Tasso di Interesse (%):</label>
+                <input type="number" id="tasso-debito" placeholder="Inserisci il tasso di interesse">
+            </div>
+            <div class="form-group">
+                <label for="paga-mensile">Pagamento Mensile (€):</label>
+                <input type="number" id="paga-mensile" placeholder="Inserisci importo pagamento mensile">
+            </div>
+            <div class="form-group">
+                <label for="durata-finanziamento">Durata Finanziamento (anni):</label>
+                <input type="number" id="durata-finanziamento" placeholder="Inserisci durata in anni">
+            </div>
+            <button onclick="calcolaEstinzioneDebito()">Calcola Estinzione Debito</button>
+            <div id="resocontoEstinzioneDebito"></div>
+            <canvas id="graficoEstinzioneDebito"></canvas>
+        </div>
+
+        <!-- Sezione Crescita Patrimonio -->
+        <div id="crescitaPatrimonio" class="sezione">
+            <h2>Crescita Patrimonio</h2>
+            <div class="form-group">
+                <label for="risparmi">Risparmi Mensili (€):</label>
+                <input type="number" id="risparmi" placeholder="Inserisci risparmi mensili">
+            </div>
+            <div class="form-group">
+                <label for="investimento">Investimento Mensile (€):</label>
+                <input type="number" id="investimento" placeholder="Inserisci investimento mensile">
+            </div>
+            <div class="form-group">
+                <label for="rischio">Fattore di Rischio:</label>
+                <select id="rischio">
+                    <option value="basso">Basso</option>
+                    <option value="medio">Medio</option>
+                    <option value="alto">Alto</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="periodo">Periodo (anni):</label>
+                <input type="number" id="periodo" placeholder="Inserisci periodo in anni">
+            </div>
+            <button onclick="calcolaCrescitaPatrimonio()">Calcola Crescita Patrimonio</button>
+            <div id="resocontoCrescitaPatrimonio"></div>
+            <canvas id="graficoCrescitaPatrimonio"></canvas>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
